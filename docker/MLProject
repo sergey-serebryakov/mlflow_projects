@@ -1,0 +1,13 @@
+name: system
+
+docker_env:
+  image: "python:3.9"
+
+entry_points:
+  download:
+    parameters:
+      from:  {type: str, default: "https://my.server.com/dataset"}
+      to:  {type: str, default: "workspace/dataset"}
+    command: "./download.sh {from} {to}"
+  train:
+    command: "python train.py"
